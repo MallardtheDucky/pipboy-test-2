@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PIP-BOY 3000A // Character Sheet</title>
+  <meta name="theme-color" content="#1b1609">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="amberize" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0 0 0 0 0.941  0 0 0 0 0.69  0 0 0 0 0.298  0 0 0 1 0"/>
+    </filter>
+  </svg>
+
+  <div class="pipboy" id="pipboy">
+  <i class="pb-bezel" aria-hidden="true"></i>
+  <div class="pb-gauge" aria-hidden="true"><div class="pb-gauge-face"><i class="pb-needle"></i><b>x100</b></div></div>
+  <div class="pb-engrave pb-engrave-l" aria-hidden="true">PIP-BOY</div>
+  <div class="pb-engrave pb-engrave-b" aria-hidden="true">3000A</div>
+  <div class="pb-vents pb-vents-l" aria-hidden="true"></div>
+  <div class="pb-vents pb-vents-r" aria-hidden="true"></div>
+  <div class="pb-knob" aria-hidden="true"><i></i></div>
+  <div class="pb-studs pb-studs-l" aria-hidden="true"></div>
+  <div class="pb-studs pb-studs-r" aria-hidden="true"></div>
+  <main class="frame" id="bezel">
+    <div class="screen" id="screen" aria-label="Pip-Boy 3000A screen">
+
+      <header class="top">
+        <nav class="maintabs" id="mainTabs" role="tablist" aria-label="Main tabs">
+          <button class="tab" role="tab" data-tab="stat">Stats</button>
+          <button class="tab" role="tab" data-tab="inv">Items</button>
+          <button class="tab" role="tab" data-tab="data">Data</button>
+        </nav>
+        <div class="hud">
+          <span class="hud-cell" id="hdrLvl">LVL 1</span>
+          <span class="hud-cell">HP<b id="sbHp">100/100</b></span>
+          <span class="hud-cell">AP<b id="sbAp">65/65</b></span>
+          <span class="hud-cell">RADS<b id="sbRads">0</b></span>
+          <span class="hud-cell">CAPS<b id="sbCaps" contenteditable="true" spellcheck="false" inputmode="numeric" title="Click to edit caps">000</b></span>
+          <span class="hud-cell hud-time"><b id="sbTime">22 OCT 2281 08:00</b></span>
+          <span class="hud-end"></span>
+        </div>
+        <span id="hdrSection" hidden></span>
+        <span id="sbLvl" hidden>1</span>
+      </header>
+
+      <section class="split" id="split">
+        <aside class="pane pane-list" id="listPane" aria-label="Item list">
+          <div class="list-head" id="listHead"></div>
+          <ul class="list" id="list" role="listbox"></ul>
+          <div class="list-foot" id="listFoot"></div>
+        </aside>
+        <article class="pane pane-detail" id="detailPane" aria-label="Details inspector">
+          <div class="detail-scroll" id="detail"></div>
+        </article>
+      </section>
+
+      <nav class="subtabs" id="subTabs" role="tablist" aria-label="Sub tabs"></nav>
+
+      <div class="boot" id="boot" role="dialog" aria-label="Boot sequence" tabindex="0">
+        <div class="boot-inner">
+          <div class="boot-gif tint"><img src="./assets/images/initiating.gif" alt=""></div>
+          <pre class="boot-text" id="bootText"></pre>
+          <div class="boot-prompt" id="bootPrompt">&gt; PRESS ANY KEY OR CLICK TO CONTINUE_</div>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+      <div class="fx fx-scan"></div>
+      <div class="fx fx-noise"></div>
+      <div class="fx fx-vignette"></div>
+    </div>
+  </main>
+  <div class="pb-plate">
+    <button type="button" class="pb-btn" data-tab="stat" aria-label="Stats"><span>STATS</span><i></i></button>
+    <button type="button" class="pb-btn" data-tab="inv" aria-label="Items"><span>ITEMS</span><i></i></button>
+    <button type="button" class="pb-btn" data-tab="data" aria-label="Data"><span>DATA</span><i></i></button>
+  </div>
+  </div>
+
+  <div class="legend" id="legend">
+    <span><b>Q / E</b> MAIN TAB</span>
+    <span><b>&larr; / &rarr;</b> SUB TAB</span>
+    <span><b>&uarr; / &darr;</b> SELECT</span>
+    <span id="legendAdjust"><b>+ / &minus;</b> ADJUST</span>
+    <span><b>ENTER</b> USE / EQUIP</span>
+    <span><b>M</b> MUTE</span>
+  </div>
+
+  <script src="./icons.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
